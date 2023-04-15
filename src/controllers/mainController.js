@@ -23,10 +23,14 @@ module.exports = {
 
     //TRAER PRODUCTOS DE LA BASE DE DATOS
 
-    const productos = 
+    const productos = await Productos.findAll({
+      limit: 12,
+      include: [
+        {association: 'imagenes'}
+      ]
+    })
 
-
-    res.render("home", { instaData });
+    res.render("home", { instaData, productos });
   },
 
   productDetail: async (req, res) => {
