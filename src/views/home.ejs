@@ -13,7 +13,7 @@
     <main>
         <!-- BANNER  y CATEGORIAS-->
         <section class="container-fluid txt-ctr mt-4 section-pad">
-            <%- include('./partials/banner-categorias') %>
+            <%- include('./partials/banner-categorias', { categorias }) %>
         </section>
         <!-- RECOMENDADOS -->  
         <section class="section-pad">     
@@ -32,7 +32,7 @@
                     <span>Últimos rescates...</span>
                     <b></b>
                 </h4>
-                <%- include('./partials/ultimosRescates') %>
+                <%- include('./partials/ultimosRescates', { productoUltimosRescates }) %>
 
             </div>
         </section>

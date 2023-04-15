@@ -21,6 +21,10 @@ module.exports = {
       instaData = null;
     }
 
+    //TRAER CATEGPRIAS DE LA BASE DE DATOS
+
+    const categorias = await Categorias.findAll()
+
     //TRAER PRODUCTOS DE LA BASE DE DATOS
 
     const productos = await Productos.findAll({
@@ -30,7 +34,17 @@ module.exports = {
       ]
     })
 
-    res.render("home", { instaData, productos });
+    //TRAER PRODUCTOS(ULTIMOS RESCATES) DE LA BASE DE DATOS
+
+    const productoUltimosRescates = await Productos.findAll({
+      limit: 8,
+      order: [['created_at', 'DESC']],
+      include: [
+        {association: 'imagenes'}
+      ]
+    })
+
+    res.render("home", { instaData, productos, categorias, productoUltimosRescates });
   },
 
   productDetail: async (req, res) => {

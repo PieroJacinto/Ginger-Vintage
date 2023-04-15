@@ -5,7 +5,7 @@ module.exports = {
           {
             id: 1,
             nombreCategoria: "Calzado",
-            categoriaImagen: "calzado.jpg"
+            categoriaImagen: "shoes.png"
           },
           {
             id: 2,
