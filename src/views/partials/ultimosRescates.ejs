@@ -6,7 +6,7 @@
       <% for (const producto of productoUltimosRescates) { %>
 
         <div class="col-12 col-md-3">
-            <a href="/detail" class="ancor">
+            <a href="/detail/<%= producto.id %>" class="ancor">
               <div class="card-body position-relative gris-claro mt-3 mb-2 zoom">
                   <div>
                       <img src="images/ropa/<%= producto.imagenes[0].imagen %>" alt="" class="text-center ratio-square-recomendaciones p-4">

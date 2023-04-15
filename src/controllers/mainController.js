@@ -48,7 +48,22 @@ module.exports = {
   },
 
   productDetail: async (req, res) => {
-    res.render("productDetail");
+
+    const idBuscado = req.params.id
+
+    console.log(idBuscado)
+
+    const producto = await Productos.findAll({
+      where: {
+        id: idBuscado
+      },
+      include: [
+        {association: 'imagenes'}
+      ]
+    })
+
+
+    res.render("productDetail", { producto })
   },
 
   categoryList: async (req, res) => {

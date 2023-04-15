@@ -7,7 +7,6 @@ const multerMiddleware = require("../middlewares/multerMiddleware");
 
 
 router.get("/", mainController.home);
-router.get("/detail", mainController.productDetail);
 router.get("/category", mainController.categoryList);
 
 //NEW PRODUCT
@@ -15,3 +14,7 @@ router.get("/category", mainController.categoryList);
 router.get("/newProduct", mainController.newProduct);
 //Carga de informacion para nuevo producto
 router.post("/newProduct", multerMiddleware.array("fotosDelProducto", 10), mainController.chargeProduct)
+
+//PRODUCT DETAIL
+router.get("/detail/:id", mainController.productDetail);
+
