@@ -14,11 +14,10 @@ module.exports = {
     let instaData;
     try {
       const instaFetch = await fetch(url);
-      console.log(instaFetch);
       const instaJson = await instaFetch.json();
       instaData = instaJson.data;
     } catch (error) {
-      console.log("Error en el servicio de Instagram: " + error);
+       console.log("Error en el servicio de Instagram: " + error);
       instaData = null;
     }
     res.render("home", { instaData });
