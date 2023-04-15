@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-    const alias = "Producto";
+    const alias = "Productos";
     const cols = {
         id: {
             type: DataTypes.INTEGER,
@@ -35,10 +35,10 @@ module.exports = (sequelize, DataTypes) => {
         updatedAt: "updated_at",
     };
 
-    const Producto = sequelize.define(alias, cols, config);
+    const Productos = sequelize.define(alias, cols, config);
 
-    Producto.associate = (models) => {
-        Producto.hasMany(models.ImagenesProducto, {
+    Productos.associate = (models) => {
+        Productos.hasMany(models.ImagenesProducto, {
             as: "imagenes",
             foreignKey: "productoID",
         }); 

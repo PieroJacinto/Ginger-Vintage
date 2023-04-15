@@ -6,7 +6,7 @@ const url = `https://graph.instagram.com/me/media?fields=thumbnail_url,media_url
 //SEQUELIZE
 const { Categorias } = require("../database/models");
 const { ImagenesProducto } = require("../database/models");
-const { Producto } = require("../database/models");
+const { Productos } = require("../database/models");
 const { UsuarioAdmin } = require("../database/models");
 
 module.exports = {
@@ -21,6 +21,12 @@ module.exports = {
       console.log("Error en el servicio de Instagram: " + error);
       instaData = null;
     }
+
+    //TRAER PRODUCTOS DE LA BASE DE DATOS
+
+    const productos = 
+
+
     res.render("home", { instaData });
   },
 
@@ -40,7 +46,7 @@ module.exports = {
 
   chargeProduct: async (req, res) => {
     const productoNuevo = await req.body;
-    const productoACrear = await Producto.create({
+    const productoACrear = await Productos.create({
       titulo: productoNuevo.titulo,
       precio: productoNuevo.precio,
       descripcion: productoNuevo.descripcion,
