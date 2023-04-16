@@ -49,8 +49,8 @@ module.exports = {
 
   productDetail: async (req, res) => {
 
-    const idBuscado = req.params.id    
-
+    const idBuscado = req.params.id   
+   
     const producto = await Productos.findAll({
       where: {
         id: idBuscado
@@ -59,9 +59,10 @@ module.exports = {
         {association: 'imagenes'}
       ]
     })
-    // console.log(JSON.stringify(producto,null,4));
+    const imagenes = producto[0].imagenes
+    // console.log(JSON.stringify(imagenes,null,4));
 
-    res.render("productDetail", { producto })
+    res.render("productDetail", { producto, imagenes })
   },
 
   categoryList: async (req, res) => {

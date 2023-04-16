@@ -15,16 +15,19 @@
         <div class="container-fluid">
             <div class="row">                
                 <div class="col-12 col-lg-6 p-5">
-                    <div class="col-12  max-w-detail" id="productGallery">
-                       
+                                          
+                    
+                    
+                    <div class="col-12  max-w-detail" id="productGallery">                       
                         <div class="swiffy-slider slider-item-ratio slider-item-ratio-1x1 slider-nav-round slider-nav-nodelay" id="pgallery">
+                         
+                            
                             <ul class="slider-container">
-                                <li><img src="../images/ropa/vestido.png" data-bs-toggle="modal" data-bs-target="#productGalleryModal" onclick="imageClick(0)"></li>
-                                <li><img src="../images/ropa/tapado-ging.png" loading="lazy" alt="..." data-bs-toggle="modal" data-bs-target="#productGalleryModal" onclick="imageClick(1)"></li>
-                                <li><img src="../images/ropa/short_2.png" loading="lazy" alt="..." data-bs-toggle="modal" data-bs-target="#productGalleryModal" onclick="imageClick(2)"></li>
-                                <li><img src="../images/ropa/camisa.png" loading="lazy" alt="..." data-bs-toggle="modal" data-bs-target="#productGalleryModal" onclick="imageClick(3)"></li>
-                                <li><img src="../images/ropa/shoes.png" loading="lazy" alt="..." data-bs-toggle="modal" data-bs-target="#productGalleryModal" onclick="imageClick(4)"></li>
-                                <li><img src="../images/ropa/pantalon.png" loading="lazy" alt="..." data-bs-toggle="modal" data-bs-target="#productGalleryModal" onclick="imageClick(5)"></li>
+                                <% for (let index = 0; index < imagenes.length; index++) { %>
+                                <% const imagen = imagenes[index]; %>                           
+                                <li><img src="../images/ropa/<%= imagen.imagen %>" data-bs-toggle="modal" data-bs-target="#productGalleryModal" onclick=  "imageClick(<%= (index) %>)"></li>
+                                <% } %>
+                               
                             </ul>
                     
                             <button type="button" class="slider-nav" aria-label="Go previous"></button>
@@ -32,29 +35,26 @@
                         </div>                    
                         <div class="swiffy-slider slider-nav-dark slider-nav-sm slider-nav-chevron slider-item-show4 slider-item-snapstart slider-item-ratio slider-item-ratio-1x1 slider-nav-visible slider-nav-page slider-nav-outside-expand pt-3  d-lg-block">
                             <ul class="slider-container" id="pgallerythumbs" style="cursor:pointer">
-                                <li><img src="../images/ropa/vestido.png" loading="lazy" alt="..." onmouseover="thumbHover(0)"></li>
-                                <li><img src="../images/ropa/tapado-ging.png" loading="lazy" alt="..." onmouseover="thumbHover(1)"></li>
-                                <li><img src="../images/ropa/short_2.png" loading="lazy" alt="..." onmouseover="thumbHover(2)"></li>
-                                <li><img src="../images/ropa/camisa.png" loading="lazy" alt="..." onmouseover="thumbHover(3)"></li>
-                                <li><img src="../images/ropa/shoes.png" loading="lazy" alt="..." onmouseover="thumbHover(4)"></li>
-                                <li><img src="../images/ropa/pantalon.png" loading="lazy" alt="..." onmouseover="thumbHover(5)"></li>
-                            </ul>                    
+                                <% for (let index = 0; index < imagenes.length; index++) { %>
+                                    <% const imagen = imagenes[index]; %>   
+                                <li><img src="../images/ropa/<%= imagen.imagen %>" loading="lazy" alt="..." onmouseover="thumbHover(<%=(index)%>)"></li>                                
+                                <% } %>
+                            </ul>  
+                                      
                             <button type="button" class="slider-nav" aria-label="Go previous"></button>
                             <button type="button" class="slider-nav slider-nav-next" aria-label="Go next"></button>
                         </div>              
                     </div>
                 </div>
+                
                 <div class="col-12 col-lg-6 p-5 d-flex flex-d flex-column justify-content-center">
-                        <h3> Nombre del producto </h3>
-                    <h5> $Precio del producto </h5>
+                        <h3> <%= producto[0].titulo %> </h3>
+                    <h5> $<%= producto[0].precio %> </h5>
                     <div>
-                        <P> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis quibusdam incidunt asperiores voluptates, harum dolorum explicabo veritatis quasi odit fuga unde inventore repellat quo est assumenda magni eaque molestiae minima? </P>
+                        <P> <%= producto[0].descripcion %> </P>
                         <P> Medidas en cm: </P> 
-                        <p> Axila a axila: 50cm </P>
-                        <P> Hombros: 30cm </P>
-                        <P> Largo frente: 50cm </P>
-                        <P> Largo atras: 50 cm </P>
-                        <P> Largo de mangas:30 cm </P> 
+                        <pre style="font-family: inherit;"> <%= producto[0].medidas %> </pre>                        
+                         
                         <div class="mt-4 mb-4">
                             <a href=""><button class="cart-button"> Agregar al carrito </button></a>
                         </div>
