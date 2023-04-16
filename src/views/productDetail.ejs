@@ -35,14 +35,15 @@
                         </div>                    
                         <div class="swiffy-slider slider-nav-dark slider-nav-sm slider-nav-chevron slider-item-show4 slider-item-snapstart slider-item-ratio slider-item-ratio-1x1 slider-nav-visible slider-nav-page slider-nav-outside-expand pt-3  d-lg-block">
                             <ul class="slider-container" id="pgallerythumbs" style="cursor:pointer">
-                                <% for (let index = 0; index < imagenes.length; index++) { %>
-                                    <% const imagen = imagenes[index]; %>   
-                                <li><img src="../images/ropa/<%= imagen.imagen %>" loading="lazy" alt="..." onmouseover="thumbHover(<%=(index)%>)"></li>                                
-                                <% } %>
-                            </ul>  
-                                      
+                                <% if (imagenes.length > 1) { %>                                    
+                                    <% for (let index = 0; index < imagenes.length; index++) { %>
+                                        <% const imagen = imagenes[index]; %>   
+                                        <li><img src="../images/ropa/<%= imagen.imagen %>" loading="lazy" alt="..." onmouseover="thumbHover(<%=(index)%>)"></li>                                
+                                    <% } %>                               
+                            </ul>
                             <button type="button" class="slider-nav" aria-label="Go previous"></button>
                             <button type="button" class="slider-nav slider-nav-next" aria-label="Go next"></button>
+                                <% } %>
                         </div>              
                     </div>
                 </div>
