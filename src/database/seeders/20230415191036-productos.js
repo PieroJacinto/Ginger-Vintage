@@ -9,7 +9,6 @@ module.exports = {
     const Categorias = await db.Categorias.findAll();
       
     const productosImgsArray = [
-      "calzado.jpg",
       "camisa.png",
       "faldavint.png",
       "pantalon.png",
@@ -17,7 +16,7 @@ module.exports = {
       "sacopng.png",
       "shoes.png",
       "short_2.png",
-      "swwater.png",
+      "sweater.png",
       "tapado-ging.png",
       "vestido-ging.png",
       "vestido.png",      

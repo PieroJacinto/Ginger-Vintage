@@ -49,9 +49,7 @@ module.exports = {
 
   productDetail: async (req, res) => {
 
-    const idBuscado = req.params.id
-
-    console.log(idBuscado)
+    const idBuscado = req.params.id    
 
     const producto = await Productos.findAll({
       where: {
@@ -61,7 +59,7 @@ module.exports = {
         {association: 'imagenes'}
       ]
     })
-
+    // console.log(JSON.stringify(producto,null,4));
 
     res.render("productDetail", { producto })
   },
