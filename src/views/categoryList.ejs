@@ -46,12 +46,12 @@
                       <div class="card-body position-relative gris-claro mt-3 mb-2 zoom">
                           <div>
                               <img src="../images/ropa/<%=producto.imagenes[0].imagen%>" alt="" class="text-center ratio-square-recomendaciones p-4">
-                              <a href="/detail" class="p-2 position-absolute bottom-0 start-50 translate-middle-x categ-celeste w-100 text-center cat-txt">
+                              <a href="/detail/<%= producto.id %>" class="p-2 position-absolute bottom-0 start-50 translate-middle-x categ-celeste w-100 text-center cat-txt">
                                 Ver
                               </a>
                           </div>
                       </div>
-                      <a href="/detail" class="">                
+                      <a href="/detail/<%= producto.id %>" class="">                
                         <span><%=producto.titulo%></span> 
                         <br>
                         <span class="bold">$<%=producto.precio%></span>              

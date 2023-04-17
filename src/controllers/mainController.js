@@ -83,10 +83,9 @@ module.exports = {
        offset: pagina != 1? (limite * pagina): 1
     })
     const productos = productosBuscados.rows
-    const cantidadProductos = productosBuscados.count
 
-    // REDONDEO NUMERO DE PAGINAS PARA ABAJO
-    const cantidadPaginas = ((Number.parseInt(productosBuscados.count)/12)).toFixed()
+    // REDONDEO NUMERO DE PAGINAS PARA ARRIBA
+    const cantidadPaginas = Math.ceil(Number.parseInt(productosBuscados.count)/12)
 
     res.render('categoryList', { productos, cantidadPaginas, categoriaId })
   },

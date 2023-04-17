@@ -8,7 +8,7 @@ const multerMiddleware = require("../middlewares/multerMiddleware");
 
 router.get("/", mainController.home);
 
-router.get("/:categoriaId/:pagina", mainController.categoryList); 
+
 
 //NEW PRODUCT
 //Renderizacion de vista del formulario para crear nuevo producto
@@ -18,4 +18,6 @@ router.post("/newProduct", multerMiddleware.array("fotosDelProducto", 10), mainC
 
 //PRODUCT DETAIL
 router.get("/detail/:id", mainController.productDetail);
+
+router.get("/:categoriaId/:pagina", mainController.categoryList); 
 
