@@ -486,3 +486,14 @@ main {
     -moz-appearance: none;
     box-shadow: 0 0 6px rgba(0,0,0,0.05);
   }
+
+  /* BOTON DE PAGINADO */
+
+  .page-button {
+    background: #9DD6DF;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    color:white;
+    border: none;
+    margin: 1rem;
+}

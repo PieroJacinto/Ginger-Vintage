@@ -24,14 +24,14 @@
                         <div class="col-6 col-md-3">                        
                             <div class="card categ-celeste">
                                 <!-- Ancor que toma toda la card -->
-                                <a href="/category" class="ancor">
+                                <a href="/<%= categoria.id%>/0" class="ancor">
                                     <div class="card-body opacity" >
                                         <div>
                                             <img src="images/ropa/<%= categoria.categoriaImagen %>" alt="" class="text-center ratio-square">
                                         </div>
                                         <div class="position-absolute top-50 start-50 translate-middle w-100 cat-name p-2">
                                             <!-- Ancor que toma solo la tira de texto -->
-                                            <a href="" class="cat-txt">
+                                            <a href="/<%= categoria.id %>/0" class="cat-txt">
                                                 <%= categoria.nombreCategoria %>
                                             </a>
                                         </div>

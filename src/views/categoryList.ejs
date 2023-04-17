@@ -38,175 +38,36 @@
           <!-- right column with category items -->
           <section class="col-10">
             <div class="row justify-content-center">
-              <div class="col-12 col-md-3">
-                  <a href="/detail" class="ancor">
-                    <div class="card-body position-relative gris-claro mt-3 mb-2 zoom">
-                        <div>
-                            <img src="images/ropa/shoes.png" alt="" class="text-center ratio-square-recomendaciones p-4">
-                            <a href="/detail" class="p-2 position-absolute bottom-0 start-50 translate-middle-x categ-celeste w-100 text-center cat-txt">
-                              Ver
-                            </a>
-                        </div>
-                    </div>
-                    <a href="/detail" class="">                
-                      <span>Saco vintage, 20 años de antiguedad, en perfecto estado.</span> 
-                      <br>
-                      <span class="bold">$6000</span>              
-                  </a>
-              </div>
-              <div class="col-12 col-md-3">
-                  <a href="/detail" class="ancor">
-                    <div class="card-body position-relative gris-claro mt-3 mb-2">
-                        <div>
-                            <img src="images/ropa/camisa.png" alt="" class="text-center ratio-square-recomendaciones p-4">
-                            <a href="/detail" class="p-2 position-absolute bottom-0 start-50 translate-middle-x categ-amarillo w-100 text-center cat-txt">
-                              Ver
-                            </a>
-                        </div>
+
+             <% for (const producto of productos) { %>
+
+                <div class="col-12 col-md-3">
+                    <a href="/detail/<%=producto.id%>" class="ancor">
+                      <div class="card-body position-relative gris-claro mt-3 mb-2 zoom">
+                          <div>
+                              <img src="../images/ropa/<%=producto.imagenes[0].imagen%>" alt="" class="text-center ratio-square-recomendaciones p-4">
+                              <a href="/detail" class="p-2 position-absolute bottom-0 start-50 translate-middle-x categ-celeste w-100 text-center cat-txt">
+                                Ver
+                              </a>
+                          </div>
                       </div>
-                    <a href="/detail" class="">                
-                      <span>Saco vintage, 20 años de antiguedad, en perfecto estado.</span> 
-                      <br>
-                      <span class="bold">$6000</span>
+                      <a href="/detail" class="">                
+                        <span><%=producto.titulo%></span> 
+                        <br>
+                        <span class="bold">$<%=producto.precio%></span>              
                     </a>
-                  </a>
-              </div>
-              <div class="col-12 col-md-3">
-                  <a href="/detail" class="ancor">
-                    <div class="card-body position-relative gris-claro mt-3 mb-2">
-                        <div>
-                            <img src="images/ropa/faldavint.png" alt="" class="text-center ratio-square-recomendaciones p-4">
-                            <a href="/detail" class="p-2 position-absolute bottom-0 start-50 translate-middle-x violeta w-100 text-center cat-txt">
-                              Ver
-                            </a>
-                        </div>
-                    </div>
-                    <a href="/detail" class="">                
-                      <span>Saco vintage, 20 años de antiguedad, en perfecto estado.</span> 
-                      <br>
-                      <span class="bold">$6000</span>
-                    </a>
-                  </a>
-              </div>
-              <div class="col-12 col-md-3">
-                  <a href="/detail" class="ancor">
-                    <div class="card-body position-relative gris-claro mt-3 mb-2">
-                        <div>
-                            <img src="images/ropa/pantalon.png" alt="" class="text-center ratio-square-recomendaciones p-4">
-                            <a href="/detail" class="p-2 position-absolute bottom-0 start-50 translate-middle-x categ-amarillo w-100 text-center cat-txt">
-                              Ver
-                            </a>
-                        </div>
-                    </div>
-                    <a href="/detail" class="">                
-                      <span>Saco vintage, 20 años de antiguedad, en perfecto estado.</span> 
-                      <br>
-                      <span class="bold">$6000</span>
-                    </a>
-                  </a>
-              </div>
-              <div class="col-12 col-md-3">
-                  <a href="/detail" class="ancor">
-                    <div class="card-body position-relative gris-claro mt-3 mb-2">
-                        <div>
-                            <img src="images/ropa/piloto.png" alt="" class="text-center ratio-square-recomendaciones p-4">
-                            <a href="/detail" class="p-2 position-absolute bottom-0 start-50 translate-middle-x categ-celeste w-100 text-center cat-txt">
-                              Ver
-                            </a>
-                        </div>
-                    </div>
-                    <a href="/detail" class="">                
-                      <span>Saco vintage, 20 años de antiguedad, en perfecto estado.</span>
-                      <br> 
-                      <span class="bold">$6000</span>
-                    </a>
-                  </a>
-              </div>
-              <div class="col-12 col-md-3">
-                  <a href="/detail" class="ancor">
-                    <div class="card-body position-relative gris-claro mt-3 mb-2">
-                        <div>
-                            <img src="images/ropa/sacopng.png" alt="" class="text-center ratio-square-recomendaciones p-4">
-                            <a href="/detail" class="p-2 position-absolute bottom-0 start-50 translate-middle-x violeta w-100 text-center cat-txt">
-                              Ver
-                            </a>
-                        </div>
-                    </div>
-                    <a href="/detail" class="">                
-                      <span>Saco vintage, 20 años de antiguedad, en perfecto estado.</span> 
-                      <br>
-                      <span class="bold">$6000</span>
-                    </a>
-                  </a>
-              </div>
-              <div class="col-12 col-md-3">
-                  <a href="/detail" class="ancor">
-                    <div class="card-body position-relative gris-claro mt-3 mb-2">
-                        <div>
-                            <img src="images/ropa/short_2.png" alt="" class="text-center ratio-square-recomendaciones p-4">
-                            <a href="/detail" class="p-2 position-absolute bottom-0 start-50 translate-middle-x categ-amarillo w-100 text-center cat-txt">
-                              Ver
-                            </a>
-                        </div>
-                    </div>
-                    <a href="/detail" class="">                
-                      <span>Saco vintage, 20 años de antiguedad, en perfecto estado.</span> 
-                      <br>
-                      <span class="bold">$6000</span>
-                    </a>
-                  </a>
-              </div>
-              <div class="col-12 col-md-3">
-                  <a href="/detail" class="ancor">
-                    <div class="card-body position-relative gris-claro mt-3 mb-2">
-                        <div>
-                            <img src="images/ropa/sweater.png" alt="" class="text-center ratio-square-recomendaciones p-4">
-                            <a href="/detail" class="p-2 position-absolute bottom-0 start-50 translate-middle-x categ-celeste w-100 text-center cat-txt">
-                              Ver
-                            </a>
-                        </div>
-                    </div>
-                    <a href="/detail" class="">                
-                      <span>Saco vintage, 20 años de antiguedad, en perfecto estado.</span> 
-                      <br>
-                      <span class="bold">$6000</span>
-                    </a>
-                  </a>
-              </div>
-              <div class="col-12 col-md-3">
-                  <a href="/detail" class="ancor">
-                    <div class="card-body position-relative gris-claro mt-3 mb-2">
-                        <div>
-                            <img src="images/ropa/vestido.png" alt="" class="text-center ratio-square-recomendaciones p-4">
-                            <a href="/detail" class="p-2 position-absolute bottom-0 start-50 translate-middle-x violeta w-100 text-center cat-txt">
-                              Ver
-                            </a>
-                        </div>
-                    </div>
-                    <a href="/detail" class="">                
-                      <span>Saco vintage, 20 años de antiguedad, en perfecto estado.</span> 
-                      <br>
-                      <span class="bold">$6000</span>
-                    </a>
-                  </a>
-              </div>
-              <div class="col-12 col-md-3">
-                  <a href="/detail" class="ancor">
-                    <div class="card-body position-relative gris-claro mt-3 mb-2">
-                        <div>
-                            <img src="images/ropa/accesorios.png" alt="" class="text-center ratio-square-recomendaciones p-4">
-                            <a href="/detail" class="p-2 position-absolute bottom-0 start-50 translate-middle-x categ-celeste w-100 text-center cat-txt">
-                              Ver
-                            </a>
-                        </div>
-                    </div>
-                    <a href="/detail" class="">                
-                      <span>Saco vintage, 20 años de antiguedad, en perfecto estado.</span> 
-                      <br>
-                      <span class="bold">$6000</span>
-                    </a>
-                  </a>
-              </div>
+                </div>
+              
+             <% } %>
+
+             <div class="mt-4 mb-4 d-flex justify-content-center">
+             <% for(let i = 1; i <= cantidadPaginas; i++) { %>
+
+              <a href="/<%=categoriaId%>/<%= i %>"><button class="page-button" type="submit"> <%= i %> </button></a>
+
+              <% } %>
+            </div>
+
           </div>
           </section>
         </div>

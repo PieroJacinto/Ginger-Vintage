@@ -22,7 +22,7 @@ module.exports = {
       "vestido.png",      
     ];    
 
-    Array(50)
+    Array(500)
       .fill(0)
       .forEach((_, i) => {
         
