@@ -84,13 +84,11 @@ module.exports = {
     })
     const productos = productosBuscados.rows
     const cantidadProductos = productosBuscados.count
-    console.log(cantidadProductos);
 
     // REDONDEO NUMERO DE PAGINAS PARA ABAJO
     const cantidadPaginas = ((Number.parseInt(productosBuscados.count)/12)).toFixed()
-    const TotalProductos = Number.parseInt(productosBuscados.count)
 
-    res.render('categoryList', { productos, cantidadPaginas, categoriaId, TotalProductos, pagina })
+    res.render('categoryList', { productos, cantidadPaginas, categoriaId })
   },
 
   newProduct: async (req, res) => {
