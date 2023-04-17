@@ -68,7 +68,8 @@ module.exports = {
   categoryList: async (req, res) => {
 
     const limite = 12
-    const pagina = Number.parseInt(req.params.pagina);
+    //BUSCO NUMERO DE PAGINA
+    const pagina = (Number.parseInt(req.params.pagina) - 1)
 
     const categoriaId = await req.params.categoriaId
     const productosBuscados = await Productos.findAndCountAll({
@@ -79,14 +80,17 @@ module.exports = {
         {association: 'imagenes'}
       ],
        limit: limite,
-       offset: pagina != 0? (limite * pagina): 1
+       offset: pagina != 1? (limite * pagina): 1
     })
     const productos = productosBuscados.rows
+    const cantidadProductos = productosBuscados.count
+    console.log(cantidadProductos);
 
     // REDONDEO NUMERO DE PAGINAS PARA ABAJO
-    const cantidadPaginas = Math.floor((Number.parseInt(productosBuscados.count)/12))
+    const cantidadPaginas = ((Number.parseInt(productosBuscados.count)/12)).toFixed()
+    const TotalProductos = Number.parseInt(productosBuscados.count)
 
-    res.render('categoryList', { productos, cantidadPaginas, categoriaId })
+    res.render('categoryList', { productos, cantidadPaginas, categoriaId, TotalProductos, pagina })
   },
 
   newProduct: async (req, res) => {
