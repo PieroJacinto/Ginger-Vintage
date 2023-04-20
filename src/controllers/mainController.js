@@ -59,9 +59,8 @@ module.exports = {
         {association: 'imagenes'}
       ]
     })
-    const imagenes = producto[0].imagenes
-    // console.log(JSON.stringify(imagenes,null,4));
-
+    const imagenes = producto[0].imagenes    
+    
     res.render("productDetail", { producto, imagenes })
   },
 
@@ -87,7 +86,7 @@ module.exports = {
     // REDONDEO NUMERO DE PAGINAS PARA ARRIBA
     const cantidadPaginas = Math.ceil(Number.parseInt(productosBuscados.count)/12)
 
-    res.render('categoryList', { productos, cantidadPaginas, categoriaId })
+    res.render('categoryList2', { productos, cantidadPaginas, categoriaId })
   },
 
   newProduct: async (req, res) => {

@@ -4,6 +4,18 @@
         padding-left: 4rem;
         padding-right: 4rem;
     }
+    /* category list */
+    .categ-pad {
+        padding-left: 4rem;
+        padding-right: 4rem;
+    }
+    .price-input{
+       flex-direction: column;
+    }
+    .field input{
+        font-size: 125%;
+    }
+  
 
     /* HEADER */
     .header-pad {
