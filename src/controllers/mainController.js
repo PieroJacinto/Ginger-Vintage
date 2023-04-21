@@ -69,7 +69,7 @@ module.exports = {
     const limite = 12
     //BUSCO NUMERO DE PAGINA
     const pagina = (Number.parseInt(req.params.pagina) - 1)
-
+    const paginaActual = Number.parseInt(req.params.pagina);
     const categoriaId = await req.params.categoriaId
     const productosBuscados = await Productos.findAndCountAll({
       where: {
@@ -86,7 +86,7 @@ module.exports = {
     // REDONDEO NUMERO DE PAGINAS PARA ARRIBA
     const cantidadPaginas = Math.ceil(Number.parseInt(productosBuscados.count)/12)
 
-    res.render('categoryList2', { productos, cantidadPaginas, categoriaId })
+    res.render('categoryList2', { productos, cantidadPaginas, categoriaId, paginaActual })
   },
 
   newProduct: async (req, res) => {
@@ -121,6 +121,6 @@ module.exports = {
     const filtros = await req.body;
     console.log(JSON.stringify(filtros,null,4))
 
-    res.redirect("/")
+    res.send(filtros)
   },
 };

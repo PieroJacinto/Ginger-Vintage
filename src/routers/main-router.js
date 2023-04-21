@@ -16,10 +16,10 @@ router.get("/newProduct", mainController.newProduct);
 router.post("/newProduct", multerMiddleware.array("fotosDelProducto", 10), mainController.chargeProduct)
 
 //PRODUCT FILTER
-router.post("/filterProduct", mainController.filterProduct);
 
 //PRODUCT DETAIL
 router.get("/detail/:id", mainController.productDetail);
 
 router.get("/:categoriaId/:pagina", mainController.categoryList); 
 
+router.post("/:categoriaId/:pagina", mainController.filterProduct);

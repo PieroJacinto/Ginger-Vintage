@@ -80,7 +80,7 @@
                   </div>
                 </div> -->
 
-              <form class="form-control p-5" action="/filterProduct" method="POST" enctype="multipart/form-data" id="formulario">
+              <form class="form-control p-5" action="/<%= categoriaId %>/<%= paginaActual %>" method="POST" enctype="form-data" id="formulario">
                 <select name="talle" id="categoria" class="form-select" aria-label="Default select example">
                   <option selected>Selecciona un talle</option>
                   <option >XS</option>
@@ -94,7 +94,7 @@
                   <button class="cart-button" type="submit"> Aplicar filtos </button>
                 </div>
 
-               </form>
+              </form>
           </section>
 
           <!-- right column with category items -->
