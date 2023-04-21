@@ -8,6 +8,7 @@ const { Categorias } = require("../database/models");
 const { ImagenesProducto } = require("../database/models");
 const { Productos } = require("../database/models");
 const { UsuarioAdmin } = require("../database/models");
+const { Op } = require("sequelize");
 
 module.exports = {
   home: async (req, res) => {
@@ -118,9 +119,19 @@ module.exports = {
 
   filterProduct: async (req, res) => {
 
+    const categoriaId = await req.params.categoriaId
     const filtros = await req.body;
-    console.log(JSON.stringify(filtros,null,4))
+    const tallesBuscados = filtros.talle
 
-    res.send(filtros)
+
+    const productosFiltrados = await Productos.findAll({
+      where:{
+        categoriaID: categoriaId,
+        precio: {
+          [Op.and]: [{[Op.gte]: filtros.precioMinimo},{[Op.lte]: filtros.precioMaximo}]
+        },
+      }
+    })
+
   },
 };

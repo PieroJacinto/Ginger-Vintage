@@ -15,8 +15,9 @@
       <div class="container-fluid ">
         <div class="row categ-pad">     
           <!-- Left column with filters large size-->
-          <section class="col-12 col-md-2 mt-1rem categ-left-section">     
-                <!-- <div class="price-input">
+          <section class="col-12 col-md-2 mt-1rem categ-left-section">   
+            <form class="form-control p-5" action="/<%= categoriaId %>/<%= paginaActual %>" method="POST" enctype="form-data" id="formulario">  
+                <div class="price-input">
                   <div class="field price-mg d-flex">
                     <span>Min</span>
                     <input name="precioMinimo" type="number" class="input-min" value="2500">
@@ -33,10 +34,10 @@
                 <div class="range-input">
                   <input type="range" class="range-min" min="0" max="30000" value="7500" step="100">
                   <input type="range" class="range-max" min="0" max="30000" value="22500" step="100">
-                </div> -->
+                </div> 
 
                 <!-- CHECBOX TALLES -->  
-                <!-- <h5 class="mt-3">Talle</h2>
+                 <h5 class="mt-3">Talle</h2>
                 <div class="talle-check">
                   <div class="check-marg">
                     <div class="form-check">
@@ -78,17 +79,8 @@
                       </label>
                     </div>
                   </div>
-                </div> -->
+                </div> 
 
-              <form class="form-control p-5" action="/<%= categoriaId %>/<%= paginaActual %>" method="POST" enctype="form-data" id="formulario">
-                <select name="talle" id="categoria" class="form-select" aria-label="Default select example">
-                  <option selected>Selecciona un talle</option>
-                  <option >XS</option>
-                  <option >S</option>
-                  <option >M</option>
-                  <option >L</option>
-                  <option >XL</option>
-                </select>
 
                 <div class="mt-4 mb-4 d-flex justify-content-center">
                   <button class="cart-button" type="submit"> Aplicar filtos </button>
