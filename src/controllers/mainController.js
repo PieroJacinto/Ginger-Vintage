@@ -102,6 +102,7 @@ module.exports = {
       precio: productoNuevo.precio,
       descripcion: productoNuevo.descripcion,
       categoriaID: productoNuevo.categoria,
+      talle: productoNuevo.talle,
       medidas: productoNuevo.medidas,
     });
     if (req.files) {

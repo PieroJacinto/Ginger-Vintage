@@ -23,6 +23,10 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.INTEGER,
             allowNull: false,
         },
+        talle: {
+            type: DataTypes.STRING(5),
+            allowNull: false,
+        },
         medidas: {
             type: DataTypes.STRING(1000),
             allowNull: false,
