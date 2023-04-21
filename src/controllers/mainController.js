@@ -132,6 +132,8 @@ module.exports = {
         },
       }
     })
+    
+    res.send(productosFiltrados)
 
   },
 };
