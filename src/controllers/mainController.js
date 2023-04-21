@@ -115,4 +115,12 @@ module.exports = {
     }
     res.send(productoNuevo);
   },
+
+  filterProduct: async (req, res) => {
+
+    const filtros = await req.body;
+    console.log(JSON.stringify(filtros,null,4))
+
+    res.redirect("/")
+  },
 };

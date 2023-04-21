@@ -15,71 +15,86 @@
       <div class="container-fluid ">
         <div class="row categ-pad">     
           <!-- Left column with filters large size-->
-          <section class="col-12 col-md-2 mt-1rem categ-left-section">           
-            <div class="price-input">
-              <div class="field price-mg d-flex">
-                <span>Min</span>
-                <input type="number" class="input-min" value="2500">
-              </div>
-              <div class="separator">-</div>
-              <div class="field">
-                <span>Max</span>
-                <input type="number" class="input-max" value="7500">
-              </div>
-            </div>
-            <div class="slider">
-              <div class="progress"></div>
-            </div>
-            <div class="range-input">
-              <input type="range" class="range-min" min="0" max="30000" value="7500" step="100">
-              <input type="range" class="range-max" min="0" max="30000" value="22500" step="100">
-            </div>
+          <section class="col-12 col-md-2 mt-1rem categ-left-section">     
+                <!-- <div class="price-input">
+                  <div class="field price-mg d-flex">
+                    <span>Min</span>
+                    <input name="precioMinimo" type="number" class="input-min" value="2500">
+                  </div>
+                  <div class="separator">-</div>
+                  <div class="field">
+                    <span>Max</span>
+                    <input name="precioMaximo" type="number" class="input-max" value="7500">
+                  </div>
+                </div>
+                <div class="slider">
+                  <div class="progress"></div>
+                </div>
+                <div class="range-input">
+                  <input type="range" class="range-min" min="0" max="30000" value="7500" step="100">
+                  <input type="range" class="range-max" min="0" max="30000" value="22500" step="100">
+                </div> -->
 
-            <!-- CHECBOX TALLES -->
-            <h5 class="mt-3">Talle</h2>
-            <div class="talle-check">
-              <div class="check-marg">
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                  <label class="form-check-label" for="flexCheckDefault">
-                    XS
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                  <label class="form-check-label" for="flexCheckDefault">
-                    S
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                  <label class="form-check-label" for="flexCheckDefault">
-                    M
-                  </label>
-                </div>
-              </div>
-              <div>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                  <label class="form-check-label" for="flexCheckDefault">
-                    L
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                  <label class="form-check-label" for="flexCheckDefault">
-                    XL
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                  <label class="form-check-label" for="flexCheckDefault">
-                    XXL
-                  </label>
-                </div>
-              </div>
+                <!-- CHECBOX TALLES -->  
+                <!-- <h5 class="mt-3">Talle</h2>
+                <div class="talle-check">
+                  <div class="check-marg">
+                    <div class="form-check">
+                      <input name="talle" class="form-check-input" type="checkbox" value="XS" id="flexCheckDefault">
+                      <label class="form-check-label" for="flexCheckDefault">
+                        XS
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input name="talle" class="form-check-input" type="checkbox" value="S" id="flexCheckDefault">
+                      <label class="form-check-label" for="flexCheckDefault">
+                        S
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input name="talle" class="form-check-input" type="checkbox" value="M" id="flexCheckDefault">
+                      <label class="form-check-label" for="flexCheckDefault">
+                        M
+                      </label>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="form-check">
+                      <input name="talle" class="form-check-input" type="checkbox" value="L" id="flexCheckDefault">
+                      <label class="form-check-label" for="flexCheckDefault">
+                        L
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input name="talle" class="form-check-input" type="checkbox" value="XL" id="flexCheckDefault">
+                      <label class="form-check-label" for="flexCheckDefault">
+                        XL
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input name="talle" class="form-check-input" type="checkbox" value="XXL" id="flexCheckDefault">
+                      <label class="form-check-label" for="flexCheckDefault">
+                        XXL
+                      </label>
+                    </div>
+                  </div>
+                </div> -->
 
-            </div>
+              <form class="form-control p-5" action="/filterProduct" method="POST" enctype="multipart/form-data" id="formulario">
+                <select name="talle" id="categoria" class="form-select" aria-label="Default select example">
+                  <option selected>Selecciona un talle</option>
+                  <option >XS</option>
+                  <option >S</option>
+                  <option >M</option>
+                  <option >L</option>
+                  <option >XL</option>
+                </select>
+
+                <div class="mt-4 mb-4 d-flex justify-content-center">
+                  <button class="cart-button" type="submit"> Aplicar filtos </button>
+                </div>
+
+               </form>
           </section>
 
           <!-- right column with category items -->
