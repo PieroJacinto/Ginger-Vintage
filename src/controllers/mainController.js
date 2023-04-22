@@ -68,6 +68,7 @@ module.exports = {
   categoryList: async (req, res) => {
 
     const limite = 12
+    const filtros =[]
     //BUSCO NUMERO DE PAGINA
     const pagina = (Number.parseInt(req.params.pagina) - 1)
     const paginaActual = Number.parseInt(req.params.pagina);
@@ -87,7 +88,7 @@ module.exports = {
     // REDONDEO NUMERO DE PAGINAS PARA ARRIBA
     const cantidadPaginas = Math.ceil(Number.parseInt(productosBuscados.count)/12)
 
-    res.render('categoryList2', { productos, cantidadPaginas, categoriaId, paginaActual })
+    res.render('categoryList2', { productos, cantidadPaginas, categoriaId, paginaActual, filtros })
   },
 
   newProduct: async (req, res) => {
@@ -119,24 +120,61 @@ module.exports = {
 
   filterProduct: async (req, res) => {
 
+    //DATOS PARA RENDERIZACION 
+    const limite = 12
+    //BUSCO NUMERO DE PAGINA
+    const pagina = (Number.parseInt(req.params.pagina) - 1)
+    const paginaActual = Number.parseInt(req.params.pagina);
     const categoriaId = await req.params.categoriaId
+
     const filtros = await req.body;
     const tallesBuscados = filtros.talle
-    console.log(tallesBuscados);
 
-    const productosFiltrados = await Productos.findAll({
-      where:{
-        categoriaID: categoriaId,
-          precio: {
-            [Op.and]: [{[Op.gte]: filtros.precioMinimo},{[Op.lte]: filtros.precioMaximo}]
+    if (tallesBuscados) {
+      const productosFiltrados = await Productos.findAndCountAll({
+        where:{
+          categoriaID: categoriaId,
+            precio: {
+              [Op.and]: [{[Op.gte]: filtros.precioMinimo},{[Op.lte]: filtros.precioMaximo}]
+          },
+          talle: {
+             [Op.in]:[tallesBuscados],  
+          }
         },
-        
-        talle: {
-           [Op.in]:[tallesBuscados],  
-        }
-      }
-    })    
-    res.send(productosFiltrados)
+        include: [
+          {association: 'imagenes'}
+        ],
+        limit: limite,
+        offset: pagina != 1? (limite * pagina): 1
+      })
+
+      const productos = productosFiltrados.rows
+      // REDONDEO NUMERO DE PAGINAS PARA ARRIBA
+      const cantidadPaginas = Math.ceil(Number.parseInt(productosFiltrados.count)/12)
+
+      res.render('categoryList2', { productos, cantidadPaginas, categoriaId, paginaActual, filtros})
+
+    } else {
+      const productosFiltrados = await Productos.findAndCountAll({
+        where:{
+          categoriaID: categoriaId,
+            precio: {
+              [Op.and]: [{[Op.gte]: filtros.precioMinimo},{[Op.lte]: filtros.precioMaximo}]
+          }
+        },
+        include: [
+          {association: 'imagenes'}
+        ],
+        limit: limite,
+        offset: pagina != 1? (limite * pagina): 1
+      }) 
+
+      const productos = productosFiltrados.rows
+      // REDONDEO NUMERO DE PAGINAS PARA ARRIBA
+      const cantidadPaginas = Math.ceil(Number.parseInt(productosFiltrados.count)/12)
+
+      res.render('categoryList2', { productos, cantidadPaginas, categoriaId, paginaActual, filtros })
+    }
 
   },
 };

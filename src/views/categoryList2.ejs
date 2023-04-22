@@ -16,7 +16,7 @@
         <div class="row categ-pad">     
           <!-- Left column with filters large size-->
           <section class="col-12 col-md-2 mt-1rem categ-left-section">   
-            <form class="form-control p-5" action="/<%= categoriaId %>/<%= paginaActual %>" method="POST" enctype="form-data" id="formulario">  
+            <form class="form-control p-5" action="/filterProduct/<%= categoriaId %>/<%= paginaActual %>" method="POST" enctype="form-data" id="formulario">  
                 <div class="price-input">
                   <div class="field price-mg d-flex">
                     <span>Min</span>
@@ -97,7 +97,7 @@
                     <a href="/detail/<%=producto.id%>" class="ancor">
                       <div class="card-body position-relative gris-claro mt-3 mb-2 zoom">
                           <div>
-                              <img src="../images/ropa/<%=producto.imagenes[0].imagen%>" alt="" class="text-center ratio-square-recomendaciones p-4">
+                              <img src="/images/ropa/<%=producto.imagenes[0].imagen%>" alt="" class="text-center ratio-square-recomendaciones p-4">
                               <a href="/detail/<%= producto.id %>" class="p-2 position-absolute bottom-0 start-50 translate-middle-x categ-celeste w-100 text-center cat-txt">
                                 Ver
                               </a>
@@ -112,11 +112,24 @@
              <% } %>
             <!-- PAGINADO -->
              <div class="mt-4 mb-4 d-flex justify-content-center">
-             <% for(let i = 1; i <= cantidadPaginas; i++) { %>
+              <% if (filtros.length > 0) { %>
 
-              <a href="/<%=categoriaId%>/<%= i %>"><button class="page-button" type="submit"> <%= i %> </button></a>
+                <% for(let i = 1; i <= cantidadPaginas; i++) { %>
+
+                  <a href="/filterProduct/<%=categoriaId%>/<%= i %>"><button class="page-button" type="submit"> <%= i %> </button></a>
+    
+                  <% } %>
+
+              <% } else { %>
+
+                <% for(let i = 1; i <= cantidadPaginas; i++) { %>
+
+                  <a href="/<%=categoriaId%>/<%= i %>"><button class="page-button" type="submit"> <%= i %> </button></a>
+    
+                  <% } %>
 
               <% } %>
+
             </div>
           </div>
           </section>
@@ -128,7 +141,7 @@
         <%- include('./partials/footer') %>
     </footer>    
        
-    <script src="../js/priceRange.js"></script>
+    <script src="/js/priceRange.js"></script>
 
      <!-- BOOTSRAP ENDING LINE -->
     <script 
