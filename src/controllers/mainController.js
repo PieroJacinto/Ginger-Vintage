@@ -122,17 +122,20 @@ module.exports = {
     const categoriaId = await req.params.categoriaId
     const filtros = await req.body;
     const tallesBuscados = filtros.talle
-
+    console.log(tallesBuscados);
 
     const productosFiltrados = await Productos.findAll({
       where:{
         categoriaID: categoriaId,
-        precio: {
-          [Op.and]: [{[Op.gte]: filtros.precioMinimo},{[Op.lte]: filtros.precioMaximo}]
+          precio: {
+            [Op.and]: [{[Op.gte]: filtros.precioMinimo},{[Op.lte]: filtros.precioMaximo}]
         },
+        
+        talle: {
+           [Op.in]:[tallesBuscados],  
+        }
       }
-    })
-    
+    })    
     res.send(productosFiltrados)
 
   },
