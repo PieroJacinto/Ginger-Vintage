@@ -68,7 +68,8 @@ module.exports = {
   categoryList: async (req, res) => {
 
     const limite = 12
-    const filtros =[]
+    //DECLARO FILTROS PARA DIFERENCIAR EL PAGINADO DE LOS PRODUCTOS PARA LA VISTA CUANDO HAY Y CUANDO NO HAY FILTROS
+    const filtros = null
     //BUSCO NUMERO DE PAGINA
     const pagina = (Number.parseInt(req.params.pagina) - 1)
     const paginaActual = Number.parseInt(req.params.pagina);
@@ -88,11 +89,12 @@ module.exports = {
     // REDONDEO NUMERO DE PAGINAS PARA ARRIBA
     const cantidadPaginas = Math.ceil(Number.parseInt(productosBuscados.count)/12)
 
-    res.render('categoryList2', { productos, cantidadPaginas, categoriaId, paginaActual, filtros })
+    res.render('categoryList2', { productos, cantidadPaginas, categoriaId, paginaActual, filtros})
   },
 
   newProduct: async (req, res) => {
     const categorias = await Categorias.findAll();
+
 
     res.render("newProductForm", { categorias });
   },
@@ -127,8 +129,13 @@ module.exports = {
     const paginaActual = Number.parseInt(req.params.pagina);
     const categoriaId = await req.params.categoriaId
 
-    const filtros = await req.body;
+    // SI HAY FILTROS APLICADOS VUELVO A GUARDARLOS, SINO UTILIZO LOS QUE ESTAN EN EL SESSION
+    if (req.body.precioMaximo != undefined) {
+      req.session.filtros = await req.body
+    }
+    const filtros = req.session.filtros
     const tallesBuscados = filtros.talle
+   
 
     if (tallesBuscados) {
       const productosFiltrados = await Productos.findAndCountAll({
